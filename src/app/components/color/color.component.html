@@ -1,0 +1,10 @@
+<ul *ngIf="dataLoaded==true" class="list-group">
+    <li class="list-group-item active">Tüm Renkler</li>
+    <ng-container *ngFor="let color of colors">
+      <li class="list-group-item">{{ color.name }}</li>
+    </ng-container>
+   
+  </ul>
+
+ 
+  
