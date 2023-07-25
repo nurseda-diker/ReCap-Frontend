@@ -1,8 +1,8 @@
 <ul *ngIf="dataLoaded == true" class="list-group" style="width: 305px">
   <li class="list-group-item active">Tüm Kiralamalar</li>
   <ng-container *ngFor="let rental of rentals">
-    <li class="list-group-item">{{ rental.carId }}</li>
-    <li class="list-group-item">{{ rental.customerId }}</li>
+    <li class="list-group-item">{{ rental.brandName }}</li>
+    <li class="list-group-item">{{ rental.fullName }}</li>
     <li class="list-group-item">{{ rental.rentDate }}</li>
     <li class="list-group-item">{{ rental.returnDate }}</li>
   </ng-container>
