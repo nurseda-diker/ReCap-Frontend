@@ -1,6 +1,4 @@
 <ul *ngIf="dataLoaded == true" class="list-group" style="width: 305px">
   <li class="list-group-item active">Tüm Müşteriler</li>
-  <ng-container *ngFor="let customer of customers">
-    <li class="list-group-item">{{ customer.companyName }}</li>
-  </ng-container>
+    <li *ngFor="let customer of customers" class="list-group-item">{{ customer.companyName }}</li>
 </ul>
