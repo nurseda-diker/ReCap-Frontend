@@ -12,6 +12,7 @@
             <th>Model</th>
             <th>Günlük Fiyat</th>
             <th>Tanım</th>
+            <th>Detay Sayfası</th>
         </tr>
     </thead>
     <tr *ngFor="let car of cars">
@@ -22,5 +23,6 @@
         <td>{{car.modelYear}}</td>
         <td>{{car.dailyPrice}}</td>
         <td>{{car.description}}</td>
+        <td><button type="button" class="btn btn-primary" routerLink="carDetails/{{car.carId}}">İncele</button></td>
     </tr>
 </table>

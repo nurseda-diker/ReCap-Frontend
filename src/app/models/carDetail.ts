@@ -6,4 +6,5 @@ export interface CarDetail{
     description:string;
     brandName:string;
     colorName:string;
+    carImage:string;
 }

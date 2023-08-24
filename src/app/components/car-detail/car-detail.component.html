@@ -1,1 +1,45 @@
-<p>car-detail works!</p>
+<div class="row">
+  <div class="col-md-5" *ngFor="let car of cars">
+    <ul class="list-group">
+      <li *ngFor="let carImage of carImages" class="list-group-item">
+        <img
+          [src]="baseUrl + carImage.imagePath"
+          style="object-fit: cover"
+          width="150"
+          height="80%"
+        />
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-7">
+    <table>
+        <tr>
+          <th>Özellikler</th>
+        </tr>
+    <div *ngFor="let car of cars">
+        <tr>
+            <td>Araba Adı:{{car.carName}}</td>
+          </tr>
+          <tr>
+            <td>Marka:{{car.brandName}}</td>
+          </tr>
+          <tr>
+            <td>Renk:{{car.colorName}}</td>
+          </tr>
+    
+          <tr>
+            <td>Model Yılı:{{car.modelYear}}</td>
+          </tr>
+    
+          <tr>
+            <td>Günlük Fiyat:{{car.dailyPrice}}</td>
+          </tr>
+    
+          <tr>
+            <td>Açıklama:{{car.description}}</td>
+          </tr>
+    </div>
+     
+    </table>
+  </div>
+</div>
