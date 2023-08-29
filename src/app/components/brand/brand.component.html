@@ -1,3 +1,18 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Marka ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
+</div>
+
+<div *ngIf="filterText" class="alert alert-primary">
+{{filterText}} aradınız
+</div>
+
 <ul *ngIf="dataLoaded == true" class="list-group">
   <li
     [class]="getAllBrandClass()"
@@ -8,7 +23,7 @@
   </li>
   <li
     (click)="setCurrentBrand(brand)"
-    *ngFor="let brand of brands"
+    *ngFor="let brand of brands | brandFilter:filterText"
     [class]="getCurrentBrandClass(brand)"
     routerLink="/cars/brand/{{ brand.id }}"
   >

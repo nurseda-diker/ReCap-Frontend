@@ -13,6 +13,7 @@ export class CarComponent implements OnInit {
   apiUrl = 'https://localhost:7216/api/cars/getall';
   cars: Car[] = [];
   dataLoaded = false;
+  filterText="";
   constructor(
     private carService: CarService,
     private activatedRoute:ActivatedRoute
