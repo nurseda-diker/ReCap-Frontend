@@ -8,6 +8,38 @@
   <div *ngIf="filterText" class="alert alert-primary">
     {{filterText}} aradınız
 </div>
+<!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="brandFilter">
+  <option value="" selected>Marka seçiniz</option>
+  <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+</select> -->
+
+<label >Marka seçiniz</label>
+  <select class="form-select" aria-label="Default select example" [(ngModel)]="brandFilter">
+    <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+    
+  </select>
+
+  <label >Renk seçiniz</label>
+  <select class="form-select" aria-label="Default select example" [(ngModel)]="colorFilter">
+    <option *ngFor="let color of colors"  [value]="color.id">{{color.name}}</option>
+    
+  </select>
+
+
+
+
+<!-- <select class="form-select mt-2" aria-label="Default select example" [(ngModel)]="colorFilter">
+    <option [ngValue]="null" selected>Renk seçiniz</option>
+    <option *ngFor="let color of colors"  [value]="color.id">{{color.name}}</option>
+    
+  </select> -->
+
+  <button (click)="getCarsByBrandAndColor(brandFilter,colorFilter)" type="button" class="btn btn-secondary mt-2">Filtrele</button>
+
+  <div>
+    {{brandFilter}} ve {{colorFilter}} seçtiniz
+  </div>
+
 <table class="table">
     <thead *ngIf="dataLoaded==true">
         <tr>
@@ -21,7 +53,7 @@
             <th>Detay Sayfası</th>
         </tr>
     </thead>
-    <tr *ngFor="let car of cars | carFilter:filterText">
+    <tr  *ngFor="let car of cars | carFilter:filterText" >
         <td>{{car.carId}}</td>
         <td>{{car.brandName}}</td>
         <td>{{car.colorName}}</td>

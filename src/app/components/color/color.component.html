@@ -6,7 +6,18 @@
   {{filterText}} aradınız
 </div>
 
-<ul *ngIf="dataLoaded==true" class="list-group">
+<!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedText">
+  <option selected>Renk seçiniz</option>
+  <option *ngFor="let color of colors" id="selectedText">{{color.name}}</option>
+  
+</select>
+
+<div *ngIf="selectedText" class="alert alert-info">
+  {{selectedText}} seçtiniz
+</div> -->
+
+
+<ul *ngIf="dataLoaded==true" class="list-group mt-2">
     <li [class]="getAllColorClass()" (click)="cleanCurrentColor()" routerLink="/colors">Tüm Renkler</li>
       <li (click)="setCurrentColor(color)" *ngFor="let color of colors | colorFilter:filterText" [class]="getCurrentColorClass(color)" routerLink="/cars/color/{{color.id}}">{{ color.name }}</li>
   </ul>

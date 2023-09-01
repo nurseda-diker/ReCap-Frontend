@@ -13,7 +13,17 @@
 {{filterText}} aradınız
 </div>
 
-<ul *ngIf="dataLoaded == true" class="list-group">
+<select class="form-select" aria-label="Default select example" [(ngModel)]="selectedText">
+  <option selected>Marka seçiniz</option>
+  <option *ngFor="let brand of brands" id="selectedText">{{brand.name}}</option>
+  
+</select>
+
+<div *ngIf="selectedText" class="alert alert-info">
+{{selectedText}} seçtiniz
+</div>
+
+<ul *ngIf="dataLoaded == true" class="list-group mt-2">
   <li
     [class]="getAllBrandClass()"
     (click)="cleanCurrentBrand()"
