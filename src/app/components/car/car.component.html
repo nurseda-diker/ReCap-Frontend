@@ -51,6 +51,7 @@
             <th>Günlük Fiyat</th>
             <th>Tanım</th>
             <th>Detay Sayfası</th>
+            <th></th>
         </tr>
     </thead>
     <tr  *ngFor="let car of cars | carFilter:filterText" >
@@ -62,5 +63,6 @@
         <td>{{car.dailyPrice}}</td>
         <td>{{car.description}}</td>
         <td><button type="button" class="btn btn-primary" routerLink="carDetails/{{car.carId}}">İncele</button></td>
+        <button class="btn btn-success mt-3" (click)="addToCart(car)">Sepete Ekle</button>
     </tr>
 </table>

@@ -21,4 +21,13 @@ export class RentalComponent implements OnInit {
       this.dataLoaded=true;
     });
   }
+
+  addRental(rental:Rental){
+    this.rentalService.addRental(rental).subscribe((response)=>{
+      
+    })
+  }
+
+
+
 }

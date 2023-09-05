@@ -1,0 +1,7 @@
+<div class="card" style="width: 18rem;" *ngFor="let payment of payments">
+    <div class="card-body">
+      <h5 class="card-title">{{payment.fullName}}</h5>
+      <p class="card-text">Card number: {{payment.cardNumber}}</p>
+      <p class="card-text">Kartın son kullanım tarihi:{{payment.month}}/{{payment.year}}</p>
+    </div>
+  </div>

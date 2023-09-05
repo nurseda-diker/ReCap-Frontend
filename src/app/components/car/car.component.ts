@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
@@ -27,7 +29,9 @@ export class CarComponent implements OnInit {
     private carService: CarService,
     private activatedRoute:ActivatedRoute,
     private brandService:BrandService,
-    private colorService:ColorService
+    private colorService:ColorService,
+    private cartService:CartService,
+    private toastrService:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -96,6 +100,18 @@ export class CarComponent implements OnInit {
       console.log(response.data)
     })
   }
+  addToCart(car:Car){
+    if(car.carId===2){
+      this.toastrService.error("Hata!Bu ürün sepete eklenemez");
+    }
+    else{
+      this.toastrService.success("Sepete eklendi",car.carName);
+      this.cartService.addToCart(car);
+    }
+    
+
+  }
+
 
   
 

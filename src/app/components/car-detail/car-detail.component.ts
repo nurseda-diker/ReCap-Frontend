@@ -1,9 +1,11 @@
+import { ToastrService } from 'ngx-toastr';
 import { CarImageService } from './../../services/car-image.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarImage } from 'src/app/models/carImage';
 import { CarService } from 'src/app/services/car.service';
+import { Car } from 'src/app/models/car';
 
 @Component({
   selector: 'app-car-detail',
@@ -17,7 +19,7 @@ export class CarDetailComponent implements OnInit{
   carDetails: CarDetail[] = [];
   dataLoaded=false;
   baseUrl:string="https://localhost:7216/Uploads/Images/"
-  constructor(private carService:CarService,private activatedRoute: ActivatedRoute,private carImageService:CarImageService){}
+  constructor(private carService:CarService,private activatedRoute: ActivatedRoute,private carImageService:CarImageService,private toastrService:ToastrService){}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["id"]){
@@ -57,6 +59,8 @@ export class CarDetailComponent implements OnInit{
       this.dataLoaded=true;
     })
   }
+
+  
 
   
 

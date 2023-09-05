@@ -1,0 +1,26 @@
+<form [formGroup]="payAddForm">
+    <div class="form-group">
+      <label for="fullName">Kart Sahibi</label>
+      <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Kart Sahibi Adı Soyadı">
+    </div>
+    
+    <div class="form-group">
+      <label for="cardNumber">Kart Numarası</label>
+      <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber" placeholder="Kart Numarası">
+    </div>
+    <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" class="form-control" id="cvv" formControlName="cvv"  placeholder="CVV">
+      </div>
+      <div class="form-group">
+        <label for="month">Ay</label>
+        <input type="number" class="form-control" id="month" formControlName="month" placeholder="Ay">
+      </div>
+      <div class="form-group">
+        <label for="year">Yıl</label>
+        <input type="number" class="form-control" id="year" formControlName="year" placeholder="Yıl">
+      </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="add()">Ödeme Yap</button>
+  </form>
+
