@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-5" *ngFor="let car of cars">
+  <div class="col-md-5" *ngFor="let carDetail of carDetails">
     <ul class="list-group">
       <li *ngFor="let carImage of carImages" class="list-group-item">
         <img
@@ -16,27 +16,27 @@
         <tr>
           <th>Özellikler</th>
         </tr>
-    <div *ngFor="let car of cars">
+    <div *ngFor="let carDetail of carDetails">
         <tr>
-            <td>Araba Adı:{{car.carName}}</td>
+            <td>Araba Adı:{{carDetail.carName}}</td>
           </tr>
           <tr>
-            <td>Marka:{{car.brandName}}</td>
+            <td>Marka:{{carDetail.brandName}}</td>
           </tr>
           <tr>
-            <td>Renk:{{car.colorName}}</td>
-          </tr>
-    
-          <tr>
-            <td>Model Yılı:{{car.modelYear}}</td>
+            <td>Renk:{{carDetail.colorName}}</td>
           </tr>
     
           <tr>
-            <td>Günlük Fiyat:{{car.dailyPrice}}</td>
+            <td>Model Yılı:{{carDetail.modelYear}}</td>
           </tr>
     
           <tr>
-            <td>Açıklama:{{car.description}}</td>
+            <td>Günlük Fiyat:{{carDetail.dailyPrice}}</td>
+          </tr>
+    
+          <tr>
+            <td>Açıklama:{{carDetail.description}}</td>
           </tr>
           <button class="btn btn-success mt-3">Kirala</button>
     </div>

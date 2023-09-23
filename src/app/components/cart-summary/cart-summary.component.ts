@@ -3,6 +3,7 @@ import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
 import { CartItem } from 'src/app/models/cartItem';
+import { CarDetail } from 'src/app/models/carDetail';
 
 @Component({
   selector: 'app-cart-summary',
@@ -23,7 +24,7 @@ export class CartSummaryComponent implements OnInit {
     this.cartItems = this.cartService.list();
   }
 
-  removeFromCart(car: Car) {
+  removeFromCart(car: CarDetail) {
     this.cartService.removeFromCart(car);
     this.toastrService.error(car.carName + " sepetten silindi");
   }

@@ -8,6 +8,8 @@ import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
+import { CarDetail } from 'src/app/models/carDetail';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class CarComponent implements OnInit {
   apiUrl = 'https://localhost:7216/api/cars/getall';
   cars: Car[] = [];
+  carDetails:CarDetail[]=[];
   brands:Brand[]=[];
   colors:Color[]=[];
   dataLoaded = false;
@@ -51,8 +54,9 @@ export class CarComponent implements OnInit {
 
   getCars() {
     this.carService.getCars().subscribe((response) => {
-      this.cars = response.data;
+      this.carDetails = response.data;
       this.dataLoaded = true;
+      console.log(response.data)
     });
   }
 
@@ -88,29 +92,29 @@ export class CarComponent implements OnInit {
 
   getCarsByCar(id:number){
     this.carService.getCarsByCar(id).subscribe(response=>{
-      this.cars=response.data;
+      this.carDetails=response.data;
       this.dataLoaded=true;
     })
   }
 
   getCarsByBrandAndColor(brandId:number,colorId:number){
     this.carService.getCarsByBrandAndColor(brandId,colorId).subscribe(response=>{
-      this.cars=response.data;
+      this.carDetails=response.data;
       this.dataLoaded=true;
       console.log(response.data)
     })
   }
-  addToCart(car:Car){
-    if(car.carId===2){
+  addToCart(car:CarDetail){
+     if(car.carId===2){
       this.toastrService.error("Hata!Bu ürün sepete eklenemez");
-    }
-    else{
-      this.toastrService.success("Sepete eklendi",car.carName);
-      this.cartService.addToCart(car);
-    }
+     }
+     else{
+       this.toastrService.success("Sepete eklendi",car.carName);
+       this.cartService.addToCart(car);
+     }
     
 
-  }
+   }
 
 
   

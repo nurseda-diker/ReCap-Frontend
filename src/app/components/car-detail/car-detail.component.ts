@@ -14,7 +14,7 @@ import { Car } from 'src/app/models/car';
 })
 export class CarDetailComponent implements OnInit{
 
-  cars:CarDetail[]=[]
+  
   carImages:CarImage[]=[]
   carDetails: CarDetail[] = [];
   dataLoaded=false;
@@ -27,14 +27,15 @@ export class CarDetailComponent implements OnInit{
         this.getCarImagesByCarId(params["id"]);
         
       }
+
       
     })
   }
-  
+
 
   getCarDetail(carId: number) {
     this.carService.getCarsByCar(carId).subscribe(response => {
-      this.cars = response.data;
+      this.carDetails = response.data;
       this.dataLoaded = true;
     });
   }

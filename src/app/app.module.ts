@@ -21,6 +21,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { PayComponent } from './components/pay/pay.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 @NgModule({
@@ -40,6 +43,9 @@ import { PayComponent } from './components/pay/pay.component';
     RentalAddComponent,
     CartSummaryComponent,
     PayComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CarAddComponent,
     
   ],
   imports: [
