@@ -41,3 +41,5 @@
   </li>
 </ul>
 <h5 *ngIf="currentBrand">{{ currentBrand.name }} seçtiniz</h5>
+
+<button *ngIf="currentBrand" class="btn btn-primary mt-2" routerLink="brands/update/{{currentBrand.id}}">Güncelle</button>

@@ -22,5 +22,6 @@
       <li (click)="setCurrentColor(color)" *ngFor="let color of colors | colorFilter:filterText" [class]="getCurrentColorClass(color)" routerLink="/cars/color/{{color.id}}">{{ color.name }}</li>
   </ul>
 
+  <button *ngIf="currentColor" class="btn btn-primary mt-2 mb-2" routerLink="colors/update/{{currentColor.id}}" >Güncelle</button>
  
  

@@ -63,6 +63,7 @@
         <td>{{car.dailyPrice}}</td>
         <td>{{car.description}}</td>
         <td><button type="button" class="btn btn-primary" routerLink="carDetails/{{car.carId}}">İncele</button></td>
+        <td><button type="button" class="btn btn-primary" routerLink="cars/update/{{car.carId}}">Güncelle</button></td>
         <button class="btn btn-success mt-3" (click)="addToCart(car)">Sepete Ekle</button>
     </tr>
 </table>
