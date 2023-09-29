@@ -8,5 +8,5 @@ export interface CarDetail{
     colorId:number;
     brandName:string;
     colorName:string;
-    carImage:string;
+    //carImage:string;
 }

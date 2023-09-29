@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="dataLoaded==true">
       <div class="card">
         <div class="card-header">
           <h5 class="title">Araba Güncelle</h5>
@@ -77,7 +77,7 @@
                 />
               </div>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <div class="form-group">
                 <label for="description">Resim</label>
                 <input
@@ -88,7 +88,7 @@
                   placeholder="Resim Yolu"
                 />
               </div>
-            </div>
+            </div> -->
           </form>
         </div>
   
