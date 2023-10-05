@@ -1,0 +1,18 @@
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+        <form [formGroup]="loginForm">
+          
+          <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+      
+          <div class="form-floating">
+            <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">E-posta</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Şifre</label>
+          </div>
+          <button class="btn btn-primary w-100 py-2" (click)="login()">Giriş yap</button>
+        </form>
+      </main>
+    </body>
