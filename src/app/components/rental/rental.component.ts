@@ -22,11 +22,11 @@ export class RentalComponent implements OnInit {
     });
   }
 
-  addRental(rental:Rental){
-    this.rentalService.addRental(rental).subscribe((response)=>{
+  // addRental(rental:Rental){
+  //   this.rentalService.addRental(rental).subscribe((response)=>{
       
-    })
-  }
+  //   })
+  // }
 
 
 

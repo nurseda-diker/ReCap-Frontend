@@ -8,5 +8,6 @@ export interface CarDetail{
     colorId:number;
     brandName:string;
     colorName:string;
+    findexPoint:number;
     //carImage:string;
 }

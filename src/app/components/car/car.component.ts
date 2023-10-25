@@ -1,3 +1,4 @@
+
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,6 +21,7 @@ import { CarDetail } from 'src/app/models/carDetail';
 export class CarComponent implements OnInit {
   apiUrl = 'https://localhost:7216/api/cars/getall';
   cars: Car[] = [];
+  carDetail:CarDetail;
   carDetails:CarDetail[]=[];
   brands:Brand[]=[];
   colors:Color[]=[];
@@ -55,6 +57,7 @@ export class CarComponent implements OnInit {
   getCars() {
     this.carService.getCars().subscribe((response) => {
       this.carDetails = response.data;
+      console.log(this.carDetails)
       this.dataLoaded = true;
     });
   }
@@ -77,21 +80,23 @@ export class CarComponent implements OnInit {
 
   getCarsByBrand(id:number){
     this.carService.getCarsByBrand(id).subscribe(response=>{
-      this.cars=response.data;
+      this.carDetails=response.data;
+      console.log("brand için")
+      console.log(this.carDetails)
       this.dataLoaded=true;
     })
   }
 
   getCarsByColor(id:number){
     this.carService.getCarsByColor(id).subscribe(response=>{
-      this.cars=response.data;
+      this.carDetails=response.data;
       this.dataLoaded=true;
     })
   }
 
   getCarsByCar(id:number){
     this.carService.getCarsByCar(id).subscribe(response=>{
-      this.carDetails=response.data;
+      this.carDetail=response.data;
       this.dataLoaded=true;
     })
   }

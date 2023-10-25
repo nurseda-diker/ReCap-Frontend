@@ -16,11 +16,30 @@
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
+        <li>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <div *ngIf="!userLoginCheck">
+        <button type="button" class="btn btn-outline-primary m-lg-2" routerLink="/login">Giriş Yap</button>
+        
+        <button type="button" class="btn btn-outline-dark" routerLink="/register">Kayıt Ol</button>
+      </div>
+
+      <div *ngIf="userLoginCheck">
+        <a > {{user?.firstName}}</a>
+     
+      </div>
+      
+      
+     
+      
+      
+     
     </div>
   </div>
 </nav>

@@ -24,5 +24,15 @@ export class RentalService {
     return this.httpClient.post<ResponseModel>(newPath,rental);
   }
 
+  findexScoreChcek(customerId:number,carId:number):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"findexscorecheck?customerId="+ customerId+  "&carId=" + carId;
+    return this.httpClient.get<ResponseModel>(newPath);
+  }
+
+  isRentable(carId:number):Observable<ResponseModel>{
+    let newPath=this.apiUrl + "isrentable?carId=" + carId;
+    return this.httpClient.get<ResponseModel>(newPath);
+  }
+
 
 }

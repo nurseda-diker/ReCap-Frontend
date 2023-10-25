@@ -4,17 +4,19 @@ import { LoginModel } from '../models/loginModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { RegisterModel } from '../models/registerModel';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  apiUrl="https://localhost:7216/api/auth/"
+  apiUrl="https://localhost:7216/api/"
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel:LoginModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl +"login",loginModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl +"auth/login",loginModel);
   }
 
   isAuthenticated(){
@@ -27,7 +29,12 @@ export class AuthService {
   }
 
   register(registerModel:RegisterModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "register",registerModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "auth/register",registerModel);
+  }
+
+  getUserByMail(mail:string):Observable<SingleResponseModel<User>>{
+    let newPath=this.apiUrl + "users/getbymail?mail=" + mail;
+    return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 
 }

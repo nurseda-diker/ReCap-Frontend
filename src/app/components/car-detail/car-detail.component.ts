@@ -7,6 +7,7 @@ import { CarImage } from 'src/app/models/carImage';
 import { CarService } from 'src/app/services/car.service';
 import { Car } from 'src/app/models/car';
 
+
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
@@ -17,6 +18,7 @@ export class CarDetailComponent implements OnInit{
   
   carImages:CarImage[]=[]
   carDetails: CarDetail[] = [];
+  carDetail:CarDetail;
   dataLoaded=false;
   baseUrl:string="https://localhost:7216/Uploads/Images/"
   constructor(private carService:CarService,private activatedRoute: ActivatedRoute,private carImageService:CarImageService,private toastrService:ToastrService){}
@@ -33,9 +35,10 @@ export class CarDetailComponent implements OnInit{
   }
 
 
-  getCarDetail(carId: number) {
-    this.carService.getCarsByCar(carId).subscribe(response => {
-      this.carDetails = response.data;
+  getCarDetail(id: number) {
+    this.carService.getCarsByCar(id).subscribe(response => {
+      this.carDetail = response.data;
+      console.log(this.carDetail)
       this.dataLoaded = true;
     });
   }
@@ -50,6 +53,7 @@ export class CarDetailComponent implements OnInit{
   getCarImagesByCarId(carId:number){
     this.carImageService.getCarImagesByCarId(carId).subscribe(response=>{
       this.carImages=response.data;
+      console.log(this.carImages)
       this.dataLoaded=true;
     })
   }
@@ -60,6 +64,8 @@ export class CarDetailComponent implements OnInit{
       this.dataLoaded=true;
     })
   }
+
+
 
   
 
