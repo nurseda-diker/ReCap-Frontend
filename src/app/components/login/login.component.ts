@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit{
 
   loginForm:FormGroup;
-  constructor(private formBuilder:FormBuilder,private toastrService:ToastrService,private authService:AuthService){}
+  constructor(private formBuilder:FormBuilder,private toastrService:ToastrService,private authService:AuthService,private router:Router){}
   ngOnInit(): void {
     this.createLoginForm();
   }
@@ -28,8 +29,14 @@ export class LoginComponent implements OnInit{
       let loginModel=Object.assign({},this.loginForm.value);
       console.log(this.loginForm.value)
       this.authService.login(loginModel).subscribe(response=>{
-        this.toastrService.info(response.message);
+        console.log("response");
+        console.log(response);
+        console.log(response.message)
+        this.toastrService.success(response.message,"Başarılı");
+        this.router.navigate([""]);
         localStorage.setItem("token",response.data.token);
+        localStorage.setItem("email",this.loginForm.value.email);
+
       },responseError=>{
         this.toastrService.error(responseError.error);
       })

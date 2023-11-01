@@ -1,8 +1,10 @@
 import { TokenModel } from "./tokenModel";
 
-export interface User{
-    userId:number;
+export interface User {
+    id:number;
     firstName:string;
     lastName:string;
     email:string;
+  
+    
 }

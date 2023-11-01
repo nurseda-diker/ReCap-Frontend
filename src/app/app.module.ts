@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +17,8 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule} from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { PayComponent } from './components/pay/pay.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
@@ -29,6 +29,9 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserComponent } from './components/user/user.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -56,6 +59,8 @@ import { RegisterComponent } from './components/register/register.component';
     CarUpdateComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
+    UserUpdateComponent,
     
   ],
   imports: [
@@ -69,7 +74,7 @@ import { RegisterComponent } from './components/register/register.component';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,16 +24,28 @@
       </li>
       </ul>
 
-      <div *ngIf="!userLoginCheck">
+      <div *ngIf="!isAuth()">
         <button type="button" class="btn btn-outline-primary m-lg-2" routerLink="/login">Giriş Yap</button>
         
         <button type="button" class="btn btn-outline-dark" routerLink="/register">Kayıt Ol</button>
       </div>
+      
 
-      <div *ngIf="userLoginCheck">
-        <a > {{user?.firstName}}</a>
-     
+      <div class="dropdown">
+       <div *ngIf="isAuth()">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+          {{getFullName()}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink="profile">Profilim</a>
+          <!-- <a class="dropdown-item" routerLink="user/update/{{user.id}}" >Bilgilerimi Güncelle</a> -->
+          <a class="dropdown-item" (click)="logOut()" style="cursor: pointer;">Çıkış Yap</a>
+        </div>
       </div>
+        
+      </div>
+
+      
       
       
      
