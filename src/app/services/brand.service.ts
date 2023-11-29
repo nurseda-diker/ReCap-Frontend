@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Brand } from '../models/brand';
 import { ResponseModel } from '../models/responseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';                                                          
 
 @Injectable({
   providedIn: 'root',

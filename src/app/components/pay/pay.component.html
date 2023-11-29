@@ -20,7 +20,15 @@
         <label for="year">Yıl</label>
         <input type="number" class="form-control" id="year" formControlName="year" placeholder="Yıl">
       </div>
+      <div class="mt-2">
+        <button type="button" class="btn btn-success" (click)="addCard()"
+         data-bs-dismiss="modal">Kartı Kaydet</button>
+      </div>
+
+      
     
-    <button type="submit" class="btn btn-primary" (click)="add()">Ödeme Yap</button>
+    <button type="submit" class="btn btn-primary mt-2" (click)="add()">Ödeme Yap</button>
+
+    
   </form>
 
