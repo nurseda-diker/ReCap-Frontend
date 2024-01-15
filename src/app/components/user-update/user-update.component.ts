@@ -33,6 +33,8 @@ export class UserUpdateComponent implements OnInit{
       firstName:["",Validators.required],
       lastName:["",Validators.required],
       email:["",Validators.required],
+      password:["",Validators.required],
+      status:true
      
     })
   }

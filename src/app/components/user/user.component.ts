@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService,private localStorageService:LocalStorageService) {}
   ngOnInit(): void {
     this.getUser(this.localStorageService.get("email"));
+    this.getUser(this.localStorageService.get("password"));
   }
 
    getUser(email:string){

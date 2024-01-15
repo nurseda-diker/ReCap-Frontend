@@ -26,8 +26,20 @@ export class UserService {
   }
 
   update(user:User):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "users/updateinfo",user);
+    console.log(user)
+    return this.httpClient.post<ResponseModel>(this.apiUrl + 'users/updateinfo', {
+      user:{
+        'id': user.id,
+        'firstName': user.firstName,
+        'lastName': user.lastName,
+        'email': user.email,
+        'status':user.status
+      },
+      password:user.password
+    });
+
   }
+
 
  
 
